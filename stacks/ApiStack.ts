@@ -20,21 +20,14 @@ export function ApiStack({ stack }: StackContext) {
     },
   });
 
-  const myfunc = new Function(stack, "Myfunc", {
-    runtime: "container",
-    handler: "src/lambda",
-    url: true,
-    architecture: "x86-64",
-  });
-
+  
   // Show the API endpoint in the output
   stack.addOutputs({
     ApiEndpoint: api.url,
-    FunctionEndpoint: myfunc.url
   });
 
   // Return the API resource
   return {
-    api, myfunc
+    api
   };
 }
