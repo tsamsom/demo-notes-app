@@ -10,7 +10,7 @@ export const main = handler(async (event) => {
 
   // Load our secret key
   const stripe = new Stripe(Config.STRIPE_SECRET_KEY, {
-    apiVersion: "2023-08-16",
+    apiVersion: "2023-10-16"
   });
 
   await stripe.charges.create({
